@@ -52,10 +52,9 @@ jobs:
       - name: Execute tests
         uses: cypress-io/github-action@v2
         with:
+          start: npm start
           # Use the spec provided to this worker to execute the test 
           spec: ${{ matrix.spec }}
-          build: npm run build
-          start: npm start
 
   test-component:
     runs-on: ubuntu-latest
@@ -77,7 +76,6 @@ jobs:
       - name: Execute tests
         uses: cypress-io/github-action@v2
         with:
-          start: npm start
           # To run component tests we need to use "cypress run-ct"
           command: npx cypress run-ct
           spec: ${{ matrix.spec }}
